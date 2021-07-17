@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Contact Us - Math Mania</title>
+	<meta name="description" content="Math Mania Feedback Page">
+	<link rel="icon" href="./game-logo.jpg">
+</head>
+<style>
+
+	body {
+		background-color: black;
+	}
+
+	span {
+		color: white;
+		font-size: 25px;
+	}
+
+	h1 {
+		color: white;
+	}
+
+	p {
+		font-style: italic;
+		font-weight: bold;
+		font-size: 25px;
+		color: lightblue;
+	}
+
+	#result {
+		display: none;
+	}
+
+	a {
+		font-weight: bold;
+	}
+
+	#name {
+		width: 210px;
+		font-size: 22px;
+	}
+
+	#email {
+		width: 300px;
+		font-size: 22px;
+	}
+
+	#send {
+		width: 250px;
+		font-size: 25px;
+	}
+
+		textarea {
+		    width: 80%;
+			font-size: 22px;
+		}
+		
+</style>
+
+<body>
+
+	<script src="./Feedback.js"></script>
+
+	<div class="leaveMessage">
+		<h1>Leave Us A Message</h1>
+		<p><em>We would love to hear from you!</em></p>
+		<br>
+		<form id="gform" name="gform">
+
+			<span>Full Name:</span> <input type="text" id="name" name="Full Name" placeholder="Enter your full name">
+			<br>
+			<br> <span>Message:</span> <textarea rows="8" cols="100" name="Message" placeholder="Enter your feedback here"></textarea>
+			<br>
+			<br> <span>Your Email Address:</span> <input type="email" id="email" name="Mail Id" placeholder="Enter your mail address">
+			<br>
+			<br>
+			<input type="submit" id="send" value="Send My Feedback">
+		</form>
+
+		<br>
+
+		<div id="result">
+				<p id="successText"></p>
+				
+			</div>
+			<!-- Closing successText-->
+		</div>
+		<!-- Closing result-->
+	</div>
+	<!-- Closing leaveMessage-->
+
+	
+
+</body>
+
+</html>

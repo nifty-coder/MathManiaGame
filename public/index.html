@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+		<!-- Google Analytics Tracking
+   Learn more at https://www.google.com/analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110501966-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		};
+		gtag('js', new Date());
+		gtag('config', 'UA-110501966-1');
+	</script>
+	
+	<title>MathMania! Fun Math Games for School Kids!</title>
+	
+	<!-- SEO (https://moz.com/beginners-guide-to-seo) -->
+	<meta name="description" content="GameName: MathMania, GameReason: MathEdu, GameFor: 5&10, Complexity: AllVEMH">
+	
+	<!-- RWD (responsive web design) -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Setting icon at title bar -->
+	<link rel="icon" href="./game-logo.jpg">	
+</head>
+<style>
+	* {
+		box-sizing: border-box;
+	}
+
+	input[type=number]::-webkit-inner-spin-button,
+	input[type=number]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+
+	.row::after {
+		content: "";
+		clear: both;
+		display: block;
+	}
+
+	body {
+		text-align: center;
+		background-color: black;
+	}
+
+	#welcome {
+		color: white;
+	}
+
+	a {
+		color: yellow;
+		font-size: 120%;
+		font-weight: bold;
+	}
+
+	#radioGroup {
+		position: absolute;
+		color: white;
+		left: 200px;
+		top: 300px;
+		font-size: 18px;
+		text-align: left;
+	}
+
+	#display,
+	#your-answer {
+		color: orange;
+		font-size: 18px;
+	}
+
+	#answer {
+		width: 175px;
+		font-size: 18px;
+	}
+
+	#text-happy,
+	#love {
+		color: orange;
+		font-size: 140%;
+	}
+
+	#wrap-page {
+		display: none;
+	}
+
+	#dance {
+		width: 120px;
+		height: 125px;
+		margin: 0 auto;
+		display: none;
+	}
+
+	audio {
+		display: none;
+	}
+
+	#text-happy {
+		font-style: italic;
+	}
+
+	select {
+		width: 255px;
+		height: 10%;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	#compare-operation {
+		display: none;
+		width: 85px;
+	}
+
+	button {
+		width: 20%;
+		height: 10%;
+		font-size: 18px;
+	}
+
+	#submit {
+		width: 100px;
+		font-weight: bold;
+	}
+
+	#submit:hover,
+	#submit:focus {
+		cursor: pointer;
+	}
+
+	#generate {
+		width: 95px;
+		height: 4%;
+		font-weight: bold;
+	}
+
+	#generate:hover,
+	#generate:focus {
+		cursor: pointer;
+	}
+
+	.math-mania {
+		width: 145px;
+		height: 140px;
+	}
+
+	#time-text {
+		background-color: green;
+		color: white;
+		font-size: 22px;
+		text-align: center;
+	}
+
+	#timer {
+		font-size: 22px;
+		color: white;
+	}
+
+	#num1,
+	#num2 {
+		width: 120px;
+		height: 25px;
+		font-size: 18px;
+		display: none;
+		text-align: center;
+	}
+
+	.modal {
+		display: none;
+		/* Hidden by default */
+		position: fixed;
+		/* Stay in place */
+		z-index: 1;
+		/* Sit on top */
+		padding-top: 12%;
+		/* Location of the box */
+		left: 700px;
+		top: 0%;
+		width: 57%;
+		height: 65%;
+		overflow: auto;
+		/* Enable scroll if needed */
+	}
+
+	/* Modal Content */
+
+	.modal-content {
+		background-color: black;
+		color: white;
+		margin: auto;
+		padding: 5px;
+		border: 1px solid #888;
+		width: 60%;
+		font-size: 18px;
+		display: block;
+	}
+
+	/* The Close Button */
+
+	.close {
+		color: white;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	/* Responsive web design - a css code to make websites or apps respond (adjust to the current width and display everything) on all devices
+	For more tutorials, please visit W3Schools (https:/www.w3schoools.com). */
+
+	@media only screen and (max-width: 1024px) {
+		/* For tablets: landscape mode */
+		.modal {
+			width: 100%;
+			left: 0%;
+		}
+		#submit {
+			width: 25%;
+		}
+		#radioGroup {
+			left: 200px;
+			top: 300px;
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		/* For tablets: Portrait mode */
+		.modal {
+			width: 100%;
+			left: 0%;
+		}
+
+		#submit {
+			width: 25%;
+		}
+		#radioGroup {
+			left: 150px;
+			top: 200px;
+		}
+	}
+
+	@media only screen and (max-width: 767px) {
+		/* For mobile phones: Landscape mode */
+		.modal {
+			width: 100%;
+			text-align: center;
+			border-bottom: 1px;
+			left: 0%;
+		}
+		#submit {
+			width: 40%;
+		}
+		#radioGroup {
+			left: 100px;
+			top: 100px;
+		}
+	}
+
+	@media only screen and (max-width: 480px) {
+		/* For mobile phones: Portrait mode */
+		.modal {
+			width: 100%;
+			left: 0%;
+		}
+		#submit {
+			width: 25%;
+		}
+		#radioGroup {
+			left: 10px;
+			top: 150px;
+		}
+	}
+
+</style>
+
+ <body>
+
+	<script src="./mathmania.js"></script>
+
+	<h2 id="welcome">WELCOME TO MATH MANIA!!!</h2>
+
+		<p id="love" title="You'll love our game!"><b>You'll love our game!</b></p>
+		<img src="./game-logo.jpg" alt="Math Mania's Logo" title="YOUR MATH MANIA HAS RETURNED!" class="math-mania">
+		<br>
+		<img src="" alt="Result image" id="dance">
+		<p id="text-happy"></p>
+		<div id="radioGroup" onclick="checkOption()">
+			
+		 <input id="veryEasy" type="radio" name="radio" value="Very Easy" checked="checked"/>
+			<label for="veryEasy">Very Easy</label>
+			<br>
+			
+			<input id="easy" type="radio" name="radio" value="Easy" />
+			<label for="easy">Easy</label>
+		
+			<br>
+			
+			<input id="medium" type="radio" name="radio" value="Medium" />
+			<label for="medium">Medium</label>
+			<br>
+			
+			<input id="hard" type="radio" name="radio" value="Hard" />
+			<label for="hard">Hard</label>
+		</div>
+		<select id="list1" name="mathopts" onchange="checkSelection()">
+			  <option id="main" value="plsselect">Please select an operation</option>
+			  <option id="add" value="addition">Addition(+)</option>
+			  <option id="subtract" value="subtraction">Subtraction(-)</option>
+			  <option id="multiply" value="multiplication">Multiplication(x)</option>
+			  <option id="divide" value="division">Division(/)</option>
+			  <option id="comparison" value="compare">Comparison</option>
+	   </select>
+		<br>
+		<br>
+		<button id="generate" onclick="nextClicked()">Play</button>
+		<br>
+		<br>
+		<input type="text" id="num1" title="1st number" readonly>
+		<span id="display" style="display:none"></span>
+		<input type="text" id="num2" title="2nd number" readonly>
+		<br>
+		<audio id="congrats">
+			  <source src="./Bhali Bhali.mp3" type="audio/mp4">
+		</audio>
+		<br>
+		<audio id="ohno">
+			  <source src="./whatamma.mp3" type="audio/mp4">
+		</audio>
+	
+	<div id="wrap-page">
+		<div id="time-text">Time left:
+			<span id="timer"></span>
+		</div>
+		<br>
+		<span id="your-answer"><b>Your Answer: </b></span>
+
+		<input type="number" id="answer" title="Answer" placeholder="Type your answer" onkeypress="return checkEnter()" inputmode="numeric" pattern="[0-9]*" autofocus>
+
+		<select id="compare-operation" onchange="answerSelection()" onkeypress="checkEnter()">
+        	<option id="nothing" value="( )">Select</option>
+        	<option id="less-than" value="<"><</option>
+        	<option id="greater-than" value=">">></option>
+        	<option id="equal" value="=">=</option>
+        </select>
+		<button id="submit" onclick="checkIfvalidorNot()">Submit</button>
+		<a class="hint" href='javascript:onclick=displayHelp()'>Need a hint?</a>
+		<br>
+		<br>
+		<a class="feedback" href="./Feedback.html" target="_blank" onclick="hideElements()">Please give your feedback</a>
+	</div>
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<p id="myPara">Insert the appropriate hint here using javascript function displayHelp()</p>
+		</div>
+	</div>
+
+</body>
+
+</html>
